@@ -263,22 +263,4 @@ class Solar:
 
     #     return(self.RTPV_all_buses)
 
-# if __name__ == "__main__":
-
-#     # inputs
-#     year_start = 1998; year_end = 1998; api_key = "t8xWo37dqt3pzunQv1QwV4pzt94TvOhwXQRTnXob"; interval = '60'; utc = 'false'; your_name = 'Atri+Bera'
-#     reason = 'beta+testing'; your_affiliation = 'sandia+national+labs'; your_email = 'abera@sandia.gov'; mailing_list = 'false'
-
-#     directory = "/Users/abera/Documents/My_Projects/QuESt_Reliability/quest_reliability/snl_progress/Data/Solar"
-#     site_data = directory+"/solar_sites.csv"
-
-#     # create instance
-#     solar = Solar(site_data, directory)
-
-#     # # download weather data and calculate solar generation
-#     # solar.SolarGen(api_key, your_name, your_affiliation, your_email, year_start, year_end)
-
-#     # process data for input into k-means code
-#     solar.SolarGenGather(year_start, year_end)
-
 

@@ -176,25 +176,3 @@ class Wind:
                 k_temp += 1    
         
         return(rate_matrix)
-
-if __name__ == "__main__":
-
-    # inputs
-    api_key = "t8xWo37dqt3pzunQv1QwV4pzt94TvOhwXQRTnXob"; email = "abera@sandia.gov"
-    affiliation = 'SNL'; interval = '60'; year_start = 2007; year_end = 2008
-    directory = "/Users/abera/Documents/My_Projects/QuESt_Reliability/quest_reliability/snl_progress/Data/Wind"
-    site_data = directory + '/wind_sites.csv'
-    windspeed_data = directory + '/windspeed_data.csv'
-    pcurve_data = directory + '/w_power_curves.csv'
-
-    # create instance
-    wind = Wind()
-
-    # w_sites, farm_name, zone_no, w_classes, w_turbines, turbine_rating, p_class, \
-    #     out_curve2, out_curve3, start_speed = wind.WindFarmsData(site_data, pcurve_data)
-
-    # download wind data
-    wind.DownloadWindData(directory, site_data, api_key, email, affiliation, year_start, year_end)
-
-    # calculate transition rates 
-    wind.CalWindTrRates(directory, windspeed_data, site_data, pcurve_data)
