@@ -219,6 +219,7 @@ class MainAppWindow(QMainWindow):
         self.ui.pushButton_solar_dl.clicked.connect(self.solar_data_process)
         self.ui.pushButton_2.clicked.connect(self.kmeans_eval)
         self.ui.pushButton_3.clicked.connect(self.kmeans_gen)
+        self.ui.pushButton.clicked.connect(self.save_solar_data)
 
         # # button connections in tab widget "wind"
         self.ui.widget_9.setVisible(False)
@@ -233,6 +234,7 @@ class MainAppWindow(QMainWindow):
         self.ui.pushButton_help_wind.clicked.connect(self.wind_process_help)
         self.ui.pushButton_4.clicked.connect(self.download_wind_data)
         self.ui.pushButton_7.clicked.connect(self.process_existing_wdata)
+        
 
         self.ui.pushButton_5.clicked.connect(self.run)
 
@@ -517,6 +519,14 @@ class MainAppWindow(QMainWindow):
         QMessageBox.information(self, "Clustering Complete", "Clustering of solar data complete!")
 
         self.ui.pushButton_DI_next_5.setVisible(True)
+
+    def save_solar_data(self):
+        solar_site_data = self.solar_directory+"/solar_sites.csv"
+        solar_prob_data = self.solar_directory+"/solar_probs.csv"
+
+        solar = Solar(solar_site_data, self.solar_directory)
+        
+        self.s_sites, self.s_zone_no, self.s_max, self.s_profiles, self.solar_prob = solar.GetSolarProfiles(solar_prob_data)
 
     def wind_cb_changed(self, index):
         if index == 1:
