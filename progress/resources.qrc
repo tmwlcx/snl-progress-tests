@@ -1,0 +1,18 @@
+<RCC>
+  <qresource prefix="logos">
+    <file>Images/logos/progress_transparent_alt.png</file>
+    <file>Images/logos/DOE_transparent.png</file>
+    <file>Images/logos/progress_transparent.png</file>
+    <file>Images/logos/progress_logo.png</file>
+    <file>Images/logos/Quest_Logo_RGB.png</file>
+    <file>Images/logos/New_DOE_Logo_Color.jpg</file>
+    <file>Images/logos/Sandia_National_Laboratories_logo.svg</file>
+  </qresource>
+  <qresource prefix="icons">
+    <file>Images/icons/qmark.png</file>
+  </qresource>
+  <qresource prefix="ornamental">
+    <file>Images/ornamental/cover_2.webp</file>
+    <file>Images/ornamental/cover.webp</file>
+  </qresource>
+</RCC>

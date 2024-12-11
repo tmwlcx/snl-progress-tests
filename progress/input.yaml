@@ -1,0 +1,24 @@
+# ProGRESS Configuration File
+
+# Data file directory
+data: "path/to/Data/"
+
+# Inputs for the API
+api_key: "yourapikey"
+email: "youremail"
+affiliation: 'youraffiliation' # no spaces, + can be used instead
+name: 'yourname' # no spaces, + can be used instead
+
+# Inputs for Wind 
+year_start_w: 2007
+year_end_w: 2014
+
+# Inputs for Solar
+year_start_s: 1998    
+year_end_s: 2020
+
+# Monte Carlo simulation parameters
+samples: 1
+sim_hours: 8760
+load_factor: 1
+model: 'Copper Sheet' # 'Zonal' or 'Copper Sheet'
