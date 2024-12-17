@@ -827,24 +827,24 @@ class KMeans_Pipeline:
             # Restore the original stdout
             sys.stdout = original_stdout
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    # Define the list of selected sites for analysis
-    directory = r'/Users/abera/Documents/My_Projects/QuESt_Reliability/quest_reliability/snl_progress/Data/Solar'
-    site_data = directory + '/solar_sites.csv'
+#     # Define the list of selected sites for analysis
+#     directory = r'path/to/Data//solar'
+#     site_data = directory + '/solar_sites.csv'
 
 
-    # Initialize the KMeans_Pipeline class
-    pipeline = KMeans_Pipeline(directory, site_data)
+#     # Initialize the KMeans_Pipeline class
+#     pipeline = KMeans_Pipeline(directory, site_data)
 
-    # Generate and save the clustering metrics to a text file
-    pipeline.test_metrics(clust_eval = 4)
+#     # Generate and save the clustering metrics to a text file
+#     pipeline.test_metrics(clust_eval = 4)
 
-    # # Run the pipeline before performing any other actions
-    # pipeline.run(n_clusters = 8)
+#     # # Run the pipeline before performing any other actions
+#     # pipeline.run(n_clusters = 8)
 
-    # # Calculate the cluster probabilities and save them to a CSV file
-    # pipeline.calculate_cluster_probability()
+#     # # Calculate the cluster probabilities and save them to a CSV file
+#     # pipeline.calculate_cluster_probability()
 
-    # # Split the data and cluster them based on the generated labels
-    # pipeline.split_and_cluster_data()
+#     # # Split the data and cluster them based on the generated labels
+#     # pipeline.split_and_cluster_data()
