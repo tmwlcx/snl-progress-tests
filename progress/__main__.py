@@ -235,7 +235,6 @@ class MainAppWindow(QMainWindow):
         self.ui.pushButton_4.clicked.connect(self.download_wind_data)
         self.ui.pushButton_7.clicked.connect(self.process_existing_wdata)
         
-
         self.ui.pushButton_5.clicked.connect(self.run)
 
         #define data paths
@@ -265,8 +264,10 @@ class MainAppWindow(QMainWindow):
         self.ui.pushButton_6.clicked.connect(lambda: self.ui.tabWidget.setCurrentWidget(self.ui.results_tab))
         #self.ui.pushButton_6.clicked.connect(self.plot)
 
+
         self.counter = 0
         self.plot_count = 0
+        self.tester=0
 
     def switch_to_home_page(self):
         self.ui.stackedWidget.setCurrentIndex(0)
@@ -373,13 +374,8 @@ class MainAppWindow(QMainWindow):
             # self.ui.pushButton_DI_next_2.setVisible(True)
 
     def upload_solar_data(self):
-        self.solar_directory = QFileDialog.getExistingDirectory(self, "Select Directory", "")
-        # solar_site_data = self.solar_directory+"/solar_sites.csv"
-        # solar_prob_data = self.solar_directory+"/solar_probs.csv"
 
-        # solar = Solar(solar_site_data, self.solar_directory)
-        
-        # self.s_sites, self.s_zone_no, self.s_max, self.s_profiles, self.solar_prob = solar.GetSolarProfiles(solar_prob_data)
+        self.solar_directory = QFileDialog.getExistingDirectory(self, "Select Directory", "")
 
         QMessageBox.information(self, "Solar Upload", "Solar data uploaded and saved!")
 
@@ -415,17 +411,8 @@ class MainAppWindow(QMainWindow):
 
         self.ui.pushButton_DI_next_2.setVisible(True)
 
-    def display_text_file(self, file_path):
-        try:
-            with open(file_path, 'r') as file:
-                content = file.read()
-                self.ui.textBrowser_5.append(content)  # Append the content to the QTextBrowser
-        except Exception as e:
-            self.ui.textBrowser_5.append(f"Error loading file: {e}")
-
     def start_download_thread(self):
         # start download thread
-
         self.download_thread.start()
         #self.ui.textBrowser_4.append("Downloading solar data please wait until the process has finished.")
         #self.output_window.show()
@@ -436,16 +423,6 @@ class MainAppWindow(QMainWindow):
 
     def end_gather_thread(self):
         pass
-
-    def display_png(self, file_path):
-        if os.path.isfile(file_path):  # Check if the file exists
-            url = QUrl.fromLocalFile(file_path)  # Convert the file path to a URL
-            html_content = f'<img src="{url.toString()}" />'
-            self.ui.textBrowser_6.setHtml(html_content)  # Load the image in the QTextBrowser
-            print('Image displayed successfully.')
-        else:
-            self.ui.textBrowser_6.setText("File does not exist.")
-            print("File does not exist.")
 
     def kmeans_eval(self):
 
@@ -469,9 +446,9 @@ class MainAppWindow(QMainWindow):
 
     def checker(self):
         if self.counter==0:
-            print(self.counter)
+            # print(self.counter)
             self.counter = 1
-            print(self.counter)
+            # print(self.counter)
         else:
             self.start_test_metrics()
             self.counter = 0
@@ -498,17 +475,37 @@ class MainAppWindow(QMainWindow):
             print("worker_pipeline has not finished yet.")
 
     def start_worker2(self):
-        self.worker2.start()
+        if self.tester==0:
+            self.tester=1
+        else:
+            self.worker2.start()
+            self.tester=0
+
+    def display_text_file(self, file_path):
+        try:
+            with open(file_path, 'r') as file:
+                content = file.read()
+                self.ui.textBrowser_5.append(content)  # Append the content to the QTextBrowser
+        except Exception as e:
+            self.ui.textBrowser_5.append(f"Error loading file: {e}")
+
+    def display_png(self, file_path):
+        if os.path.isfile(file_path):  # Check if the file exists
+            url = QUrl.fromLocalFile(file_path)  # Convert the file path to a URL
+            html_content = f'<img src="{url.toString()}" />'
+            self.ui.textBrowser_6.setHtml(html_content)  # Load the image in the QTextBrowser
+            print('Image displayed successfully.')
+        else:
+            self.ui.textBrowser_6.setText("File does not exist.")
+            print("File does not exist.")
 
     def on_workers_finished(self):
         # QMessageBox.information(self, "Clustering Metrics", "Please look at SSE curve and silhouette score results to make an informed choice on the number of clusters.")
         self.display_png(self.pdf_path)
-        self.display_text_file(self.cluster_results)
+        # self.display_text_file(self.cluster_results)
 
     def kmeans_gen(self):
-
-        self.ui.textBrowser_5.setVisible(False)
-
+        # self.ui.textBrowser_5.setVisible(False)
         self.clust_gen = self.ui.lineEdit_2.text()
         self.pipeline.run(n_clusters = int(self.clust_gen))
         self.pipeline.calculate_cluster_probability()

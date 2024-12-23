@@ -55,7 +55,8 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 import pandas as pd
-import seaborn as sns
+import plotly.graph_objects as go
+from plotly.offline import plot
 
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA  #used for dimensionality reduction, not sure if needed or desired for this project
@@ -593,16 +594,16 @@ class KMeans_Pipeline:
             range(1, clust_eval+1), sse, curve="convex", direction="decreasing"
         )
 
-        plt.plot(range(1, clust_eval+1), sse)
-        plt.xticks(range(1, clust_eval+1))
-        plt.xlabel("No. of Clusters")
-        plt.ylabel("Sum of Squared Errors")
-        plt.savefig(self.directory + "/SSE_Curve.pdf", bbox_inches='tight')
-        plt.savefig(self.directory + "/SSE_Curve.png", bbox_inches='tight')
-        plt.close()
+        # plot SSE vs clusters
+        fig = go.Figure(data=[go.Scatter(x = list(range(1, clust_eval+1)), y = sse, mode = 'lines' )])
+        fig.update_layout(
+            xaxis_title="No. of Clusters", 
+            yaxis_title="Sum of Squared Errors",
+        )
+        sseplot_name = "SSE_Curve.png"
+        fig.write_image(f"{self.directory}/{sseplot_name}")
 
         return kl.elbow, sse, silhouette_scores
-
 
     def calculate_cluster_probability(self):
         """
