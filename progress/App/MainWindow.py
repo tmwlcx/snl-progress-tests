@@ -743,6 +743,7 @@ class Ui_MainWindow(object):
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
         self.comboBox_2.setObjectName(u"comboBox_2")
         sizePolicy5.setHeightForWidth(self.comboBox_2.sizePolicy().hasHeightForWidth())
         self.comboBox_2.setSizePolicy(sizePolicy5)
@@ -1191,6 +1192,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addWidget(self.label_27)
 
         self.comboBox_3 = QComboBox(self.widget_8)
+        self.comboBox_3.addItem("")
         self.comboBox_3.addItem("")
         self.comboBox_3.addItem("")
         self.comboBox_3.addItem("")
@@ -1676,6 +1678,7 @@ class Ui_MainWindow(object):
         self.comboBox_2.setItemText(0, QCoreApplication.translate("MainWindow", u"--Select Option--", None))
         self.comboBox_2.setItemText(1, QCoreApplication.translate("MainWindow", u"Download Solar Data from NSRDB", None))
         self.comboBox_2.setItemText(2, QCoreApplication.translate("MainWindow", u"Use Own Data", None))
+        self.comboBox_2.setItemText(3, QCoreApplication.translate("MainWindow", u"No Solar", None))
 
         self.pushButton_DI_previous_2.setText(QCoreApplication.translate("MainWindow", u"Previous", None))
         self.pushButton_DI_next_2.setText(QCoreApplication.translate("MainWindow", u"Next", None))
@@ -1698,6 +1701,7 @@ class Ui_MainWindow(object):
         self.comboBox_3.setItemText(0, QCoreApplication.translate("MainWindow", u"--Select Option--", None))
         self.comboBox_3.setItemText(1, QCoreApplication.translate("MainWindow", u"Download Wind Data from WIND Toolkit", None))
         self.comboBox_3.setItemText(2, QCoreApplication.translate("MainWindow", u"Use Own Data", None))
+        self.comboBox_3.setItemText(3, QCoreApplication.translate("MainWindow", u"No Wind", None))
 
         self.pushButton_wind_upload.setText(QCoreApplication.translate("MainWindow", u"Upload Data", None))
         self.pushButton_DI_previous_3.setText(QCoreApplication.translate("MainWindow", u"Previous", None))
