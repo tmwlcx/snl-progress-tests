@@ -371,8 +371,10 @@ class MainAppWindow(QMainWindow):
             self.ui.textBrowser_4.setVisible(False)
             self.ui.widget_5.setVisible(False)
             self.ui.pushButton_solar_dl.setVisible(False)
-            # self.ui.pushButton_DI_next_2.setVisible(True)
-
+        else:
+            self.ui.tabWidget.setCurrentIndex(3)
+            self.solar_directory=False
+ 
     def upload_solar_data(self):
 
         self.solar_directory = QFileDialog.getExistingDirectory(self, "Select Directory", "")
@@ -536,6 +538,9 @@ class MainAppWindow(QMainWindow):
             self.ui.widget_9.setVisible(False)
             self.ui.pushButton_4.setVisible(False)
             self.ui.pushButton_wind_upload.setVisible(True)
+        else:
+            self.ui.tabWidget.setCurrentIndex(4)
+            self.wind_directory=False
 
     def upload_wind_data(self):
 
@@ -704,7 +709,6 @@ class MainAppWindow(QMainWindow):
             SOC_old = 0.5*(np.multiply(np.multiply(self.ess_pmax, self.ess_duration), self.ess_socmax))/BMva
             self.SOC_rec = np.zeros((self.ness, self.sim_hours))
             self.curt_rec = np.zeros(self.sim_hours)
-            # gen_rec = np.zeros((sim_hours, ng))
 
             for n in range(self.sim_hours):
 

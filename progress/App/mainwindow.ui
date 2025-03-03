@@ -134,7 +134,7 @@ QTextBrowser {
           </property>
           <widget class="QWidget" name="tab_7">
            <attribute name="icon">
-            <iconset resource="../resources.qrc">
+            <iconset>
              <normaloff>:/logos/Images/logos/progress_transparent_alt.png</normaloff>:/logos/Images/logos/progress_transparent_alt.png</iconset>
            </attribute>
            <attribute name="title">
@@ -496,7 +496,7 @@ border: none;</string>
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap resource="../resources.qrc">:/logos/Images/logos/Quest_Logo_RGB.png</pixmap>
+                  <pixmap>:/logos/Images/logos/Quest_Logo_RGB.png</pixmap>
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>
@@ -528,7 +528,7 @@ border: none;</string>
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap resource="../resources.qrc">:/logos/Images/logos/Sandia_National_Laboratories_logo.svg</pixmap>
+                  <pixmap>:/logos/Images/logos/Sandia_National_Laboratories_logo.svg</pixmap>
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>
@@ -547,7 +547,7 @@ border: none;</string>
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap resource="../resources.qrc">:/logos/Images/logos/DOE_transparent.png</pixmap>
+                  <pixmap>:/logos/Images/logos/DOE_transparent.png</pixmap>
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>
@@ -1466,6 +1466,11 @@ QComboBox QAbstractItemView {
                            <item>
                             <property name="text">
                              <string>Use Own Data</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>No Solar</string>
                             </property>
                            </item>
                           </widget>
@@ -2417,6 +2422,11 @@ QComboBox QAbstractItemView {
                     <item>
                      <property name="text">
                       <string>Use Own Data</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>No Wind</string>
                      </property>
                     </item>
                    </widget>
