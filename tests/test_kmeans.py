@@ -470,6 +470,25 @@ class TestKMeansPipeline(unittest.TestCase):
     #         self.pipeline.update_progress("Test", 0.5)
     #         self.assertEqual(output.getvalue(), "")
 
+# class TestKMeansIntegration(unittest.TestCase):
+#     """Integration tests for KMeans Pipeline"""
+    
+#     def setUp(self):
+#         """Setup real test data without mocks"""
+#         self.output = io.StringIO()
+#         self.test_directory = "/test/path"
+#         self.test_sites_file = "/test/path/solar_sites.csv"
+        
+#     def test_full_pipeline_workflow(self):
+#         """Tests the entire pipeline from data loading to clustering"""
+#         with redirect_stdout(self.output):
+#             pipeline = KMeans_Pipeline(self.test_directory, self.test_sites_file)
+#             result = pipeline.run()
+            
+#             # Verify end-to-end results
+#             self.assertIsNotNone(result)
+#             self.assertTrue(isinstance(result, np.ndarray))
+#             self.assertEqual(len(result), 8760)  # Full year of hourly predictions
+
 if __name__ == '__main__':
-    # Run tests with verbose output
     unittest.main(verbosity=2)
